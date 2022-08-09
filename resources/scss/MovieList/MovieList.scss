@@ -1,0 +1,51 @@
+@import '../_variables';
+section {
+    .movies-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .list-container  {
+        background-color: #202330;
+        height: 24rem;
+        width: 14rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 10%;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        margin: 0 1rem 2rem 1rem;
+        cursor: pointer;
+
+        img {
+            height: 280px;
+            width: 224px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+    }
+
+    .icon {
+    margin-left: 2rem;
+    }
+    .icon:hover {
+        cursor: pointer;
+        color: $color2;
+    }
+}
+.title, h4, .icon, p{
+    background-color: $color3;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+h4 {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.title p {
+    display: inline-block;
+    margin-left: 20px;
+}
