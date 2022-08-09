@@ -15,7 +15,7 @@ class TableData extends Component {
                 <th className='w-4'>{this.props.data.quantity}</th>
                 <th>kaina</th>
                 <th>
-                    <TableActionButtons id={this.props.data.id} />
+                    <TableActionButtons id={this.props.data} />
                 </th>
             </tr>
         )

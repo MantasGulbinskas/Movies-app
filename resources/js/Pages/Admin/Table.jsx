@@ -44,7 +44,6 @@ class Table extends Component {
                                         <th scope='col' width='80px'>Quantity</th>
                                         <th scope='col' width='80px'>Price</th>
                                         <th scope='col' width='80px'>Actions</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -26,7 +26,7 @@ const Create = (props) => {
     const [creator, setCreator] = useState('');
     const [category, setCategory] = useState('');
     const [quantity, setQuantity] = useState(0);
-    const [image, setImage] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png');
+    const [image_url, setImage_url] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png');
     const [description, setDescription] = useState('');
       const saveData = (e) => {
         e.preventDefault();
@@ -80,8 +80,8 @@ const Create = (props) => {
 
                     <label>Image</label>
                     <input type="text" name="image" className="form-control"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}/>
+                        value={image_url}
+                        onChange={(e) => setImage_url(e.target.value)}/>
                     <span>{ props.errors.image}</span>
 
                         <button type="submit" className="btn btn-info ">Submit</button>

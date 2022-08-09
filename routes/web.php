@@ -24,9 +24,8 @@ use App\Http\Controllers\MovieController;
 
 Route::get('/', [MovieController::class, 'index']);
 
-
-
-Route::post('/admin/add', [MovieController::class, 'addMovie']);
+Route::get('/get/movie/list',
+ [MovieController::class, 'getMovieList']);
 Route::get('/admin', function() {
     return Inertia::render('Admin/AdminLayout');
 });
@@ -35,6 +34,15 @@ Route::get('/admin/create', function() {
     return Inertia::render('Admin/Create');
 });
 
-Route::get('/get/movie/list',
- [MovieController::class, 'getMovieList']);
+Route::post('/admin/add', [MovieController::class, 'addMovie']);
 
+
+Route::get('/admin/create', function() {
+    return Inertia::render('Admin/Create');
+});
+
+
+Route::post('/admin/edit/{id}', [MovieController::class, 'edit']);
+Route::get('/admin/edit/{id}', [MovieController::class, 'edit']);
+
+Route::get('/admin/delete/{id}', [MovieController::class, 'destroy']);

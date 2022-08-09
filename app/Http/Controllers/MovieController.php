@@ -38,18 +38,47 @@ class MovieController extends Controller
             $movies = new Movie();
             $data = array(
                 'title' => $request->input('title'),
-                'year' => $request->input('year'),
-                'creator' => $request->input('creator'),
-                'category' => $request->input('category'),
-                'quantity' => $request->input('quantity'),
-                'image_url' => $request->input('image'),
                 'description' => $request->input('description'),
-
+                'creator' => $request->input('creator'),
+                'image_url' => $request->input('image'),
+                'category' => $request->input('category'),
+                'year' => $request->input('year'),
+                'quantity' => $request->input('quantity'),
             );
             $movies->create($data);
             return redirect('/admin')->with('success', 'Movie added!');
         }
         return Inertia::render('AddMovie');
     }
+
+    public function edit(int $id, Request $request, movie $movies) {
+        $movies = Movie::find($id);
+        if($request->isMethod('post')) {
+
+            $data = array(
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'creator' => $request->input('creator'),
+                'image_url' => $request->input('image'),
+                'category' => $request->input('category'),
+                'year' => $request->input('year'),
+                'quantity' => $request->input('quantity'),
+            );
+
+            $movieEdit = Movie::findOrFail($id);
+            $movieEdit->update($data);
+
+            return redirect('/admin')->with('success', 'Movie updated');
+        }
+        return Inertia::render('Admin/Edit', ['movie' => $movies]);
+    }
+
+    public function destroy(Movie $movies, $id) {
+        $movies = Movie::findOrFail($id);
+        $movies->delete();
+        return redirect('/admin')->with('success', 'Movie deleted!');
+    }
+
+
 
 }

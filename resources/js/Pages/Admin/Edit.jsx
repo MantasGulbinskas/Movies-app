@@ -1,64 +1,78 @@
+import { Inertia } from "@inertiajs/inertia";
+import { usePage } from "@inertiajs/inertia-react";
 import React, {useState} from "react";
 
-import { usePage } from "@inertiajs/inertia-react";;
-import { Inertia } from "@inertiajs/inertia";
 
-
-const Edit = () => {
+const Edit = (props) => {
     const movie = usePage().props.movie;
+    const [title, setTitle] = useState(movie.title);
+    const [year, setYear] = useState(movie.year);
+    const [creator, setCreator] = useState(movie.creator);
+    const [category, setCategory] = useState(movie.category);
+    const [quantity, setQuantity] = useState(movie.quantity);
+    const [image, setImage] = useState(movie.image_url);
+    const [description, setDescription] = useState(movie.description);
+    const saveData = (e) => {
+        e.preventDefault();
+        Inertia.post('/admin/edit/' + movie.id, {title, year, creator, category, quantity,image, description})
+}
 
     return (
-        <div id='content'>
-            <Navbar />
-            <div id='main-content'>
-                <section>
-                    <h1>Your listed games</h1>
-                </section>
-                <section>
+        <div className="container text-center ">
+            <h2>Edit Movie</h2>
+            <h1>{ movie.title}</h1>
+        <form onSubmit={saveData}>
+        <div className="row">
+            <div className="col-sm-2 ">
+                    <label>Title</label>
+                <input type="text" name="title" className="form-control"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}/>
+                <span>{ props.errors.title}</span>
+                <label>Year</label>
+                <input type="number" name="year" className="form-control"
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}/>
+                      <span>{ props.errors.year}</span>
 
-                    <table className='table-auto'>
-                        <thead>
-                            <tr>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'><Input type='checkbox' /></th>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'>Title</th>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'>Key</th>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'>Price</th>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'>Quantity</th>
-                                <th className='border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left'>Action</th>
-                            </tr>
-                        </thead>
-                        {
-                            games ?
-                                <tbody className='bg-white dark:bg-slate-800'>
-                                    {games.map(({ id, title, key, price, quantity }) => {
-                                        return (
-                                            <tr key={id}>
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'><Input type='checkbox' /></td>
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'>{title}</td>
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'>{key}</td>
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'>{price}</td>
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'>{quantity}</td>
+                <label>Creator</label>
+                <input type="text" name="text" className="form-control"
+                    value={creator}
+                    onChange={(e) => setCreator(e.target.value)}/>
+                <span>{ props.errors.creator}</span>
 
-                                                <td className='border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400'>
-                                                    <InertiaLink href={'/dashboard/edit/' + id} as='button'>Edit</InertiaLink>
-                                                    <InertiaLink href={'delete/' + id} as='button'>Delete</InertiaLink>
-                                                </td>
+                <label>Category</label>
+                <input type="text" name="category" className="form-control"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}/>
+                <span>{ props.errors.category}</span>
 
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                                : <span>Loading...</span>
-                        }
+                <label>Quantity</label>
+                <input type="number" name="quantity" className="form-control"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    />
+                     <span>{ props.errors.quantity}</span>
 
-                    </table>
+                    <label>description</label>
+                <input type="text" name="description" className="form-control"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}/>
+                <span>{ props.errors.description}</span>
 
+                <label>Image</label>
+                <input type="text" name="image" className="form-control"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}/>
+                <span>{ props.errors.image}</span>
 
-                </section>
-
+                    <button type="submit" className="btn btn-info ">Submit</button>
             </div>
+            </div>
+            </form>
 
-        </div>
+    </div>
     )
 }
+
 export default Edit;
