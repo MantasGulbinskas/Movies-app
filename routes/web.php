@@ -3,9 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
-
 use App\Http\Controllers\MovieController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +46,7 @@ Route::post('/admin/edit/{id}', [MovieController::class, 'edit']);
 Route::get('/admin/edit/{id}', [MovieController::class, 'edit']);
 
 Route::get('/admin/delete/{id}', [MovieController::class, 'destroy']);
+
+Route::get('{path?}', function() {
+    return Inertia::render('errors/404');
+});

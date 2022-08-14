@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { usePage } from '@inertiajs/inertia-react';
 import TableActionButtons from './TableActionButtons';
 
 class TableData extends Component {
+    
     constructor(props) {
         super(props);
 
     }
+    
     render() {
         return (
             <tr className="min-h-min w-auto">

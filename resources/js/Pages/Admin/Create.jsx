@@ -6,27 +6,14 @@ import Success from "./Success";
 
 const Create = (props) => {
 
-    // const { movies, movie, flash } = usePage().props;
-    // console.log(showNotification)
-    // const [showNotification, setshowNotification] = useState(true);
-    // console.log(usePage().props)
-    // useEffect(() => {
-    //     const notificationTimer = setTimeout(() => {
-    //         setshowNotification(false);
-    //     }, 3500);
-
-    //     return () => {
-    //         clearTimeout(notificationTimer);
-    //         setshowNotification(true);
-    //     }
-    // }, []);
+    const { movies, movie, flash } = usePage().props;
 
     const [title, setTitle] = useState('');
     const [year, setYear] = useState(0);
     const [creator, setCreator] = useState('');
     const [category, setCategory] = useState('');
     const [quantity, setQuantity] = useState(0);
-    const [image_url, setImage_url] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png');
+    const [image, setImage] = useState('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png');
     const [description, setDescription] = useState('');
       const saveData = (e) => {
         e.preventDefault();
@@ -35,8 +22,6 @@ const Create = (props) => {
 
     return (
         <>
-            {/* <Success showNotification={showNotification} success={flash.success} /> */}
-            
             <div className="container text-center ">
             <h2>Create New Movie</h2>
             <form onSubmit={saveData}>
@@ -80,8 +65,8 @@ const Create = (props) => {
 
                     <label>Image</label>
                     <input type="text" name="image" className="form-control"
-                        value={image_url}
-                        onChange={(e) => setImage_url(e.target.value)}/>
+                        value={image}
+                        onChange={(e) => setImage(e.target.value)}/>
                     <span>{ props.errors.image}</span>
 
                         <button type="submit" className="btn btn-info ">Submit</button>

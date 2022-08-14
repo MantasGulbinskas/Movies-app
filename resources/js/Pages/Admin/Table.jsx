@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component, useState } from "react";
 import TableData from "./TableData";
+import '../../../scss/Admin/AdminLayout.scss';
 
 
 class Table extends Component {
@@ -22,16 +23,16 @@ class Table extends Component {
     getMoviesList = () => {
         let self = this;
         axios.get('/get/movie/list').then(function (response) {
-            console.log(response)
             self.setState({
                 movies: response.data
             });
         });
     }
 
+    
     render() {
         return (
-            <div className="container">
+            <div className="container min-h-screen">
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="card">

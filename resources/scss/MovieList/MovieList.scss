@@ -1,5 +1,10 @@
 @import '../_variables';
 section {
+    background: url(../../images/error-bg.jpg) no-repeat;
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+
     .movies-container {
         display: flex;
         flex-wrap: wrap;
@@ -7,7 +12,7 @@ section {
     }
     .list-container  {
         background-color: #202330;
-        height: 24rem;
+        height: 20rem;
         width: 14rem;
         color: white;
         display: flex;
@@ -34,6 +39,8 @@ section {
         cursor: pointer;
         color: $color2;
     }
+
+
 }
 .title, h4, .icon, p{
     background-color: $color3;
@@ -43,6 +50,8 @@ section {
 
 h4 {
     font-family:Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
 .title p {

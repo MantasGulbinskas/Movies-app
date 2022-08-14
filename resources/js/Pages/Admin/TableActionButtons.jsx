@@ -5,7 +5,6 @@ import React, { Component, useState } from 'react';
 
 function TableActionButtons(props) {
 
-    console.log(props)
     return (
         <div>
             <InertiaLink className='btn btn-primary' href={'/admin/edit/' + props.id.id} as='button'>Edit</InertiaLink>

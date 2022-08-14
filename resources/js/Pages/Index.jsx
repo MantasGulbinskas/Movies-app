@@ -7,8 +7,7 @@ export default function Welcome() {
     return (
         <>
             <Header />
-            <Hero />
             <Movies />
-            </>
+        </>
     )
 }

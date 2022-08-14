@@ -8,6 +8,7 @@ use Redirect;
 use Inertia\Inertia;
 use Log;
 use Exception;
+use with;
 
 class MovieController extends Controller
 {
@@ -46,7 +47,7 @@ class MovieController extends Controller
                 'quantity' => $request->input('quantity'),
             );
             $movies->create($data);
-            return redirect('/admin')->with('success', 'Movie added!');
+            return redirect('/admin')->with('success', 'Successfully!  Movie added!');
         }
         return Inertia::render('AddMovie');
     }
@@ -68,7 +69,7 @@ class MovieController extends Controller
             $movieEdit = Movie::findOrFail($id);
             $movieEdit->update($data);
 
-            return redirect('/admin')->with('success', 'Movie updated');
+            return redirect('/admin')->with('success', 'Successfully!  Movie updated!');
         }
         return Inertia::render('Admin/Edit', ['movie' => $movies]);
     }
@@ -76,9 +77,7 @@ class MovieController extends Controller
     public function destroy(Movie $movies, $id) {
         $movies = Movie::findOrFail($id);
         $movies->delete();
-        return redirect('/admin')->with('success', 'Movie deleted!');
+        return redirect('/admin')->with('success', 'Successfully!  Movie deleted!');
     }
-
-
 
 }

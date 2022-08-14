@@ -4,7 +4,7 @@ import '../../../scss/Hero.scss';
 export default function Hero() {
     return (
         <div className='hero-container'>
-coontets
+content
         </div>
     )
 }

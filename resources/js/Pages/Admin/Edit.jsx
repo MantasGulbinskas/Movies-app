@@ -4,7 +4,7 @@ import React, {useState} from "react";
 
 
 const Edit = (props) => {
-    const movie = usePage().props.movie;
+    const  movie  = usePage().props.movie;
     const [title, setTitle] = useState(movie.title);
     const [year, setYear] = useState(movie.year);
     const [creator, setCreator] = useState(movie.creator);
@@ -15,7 +15,8 @@ const Edit = (props) => {
     const saveData = (e) => {
         e.preventDefault();
         Inertia.post('/admin/edit/' + movie.id, {title, year, creator, category, quantity,image, description})
-}
+    }
+    
 
     return (
         <div className="container text-center ">

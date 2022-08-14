@@ -7,11 +7,7 @@ function Movies() {
     const movies = usePage().props.movies;
     return (
         <div>
-            <header>
-                error content
-            </header>
-
-            <section>
+            <section className='min-h-screen'>
                 <h1>Movies</h1>
                 <div className="movies-container">
                     {
