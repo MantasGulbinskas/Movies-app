@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use Exception;
 use Illuminate\Http\Request;
-use Redirect;
 use Inertia\Inertia;
 use Log;
-use Exception;
+use Redirect;
 use with;
 
 class MovieController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $movies = Movie::all();
         return Inertia::render('Index', ['movies' => $movies]);
     }
-    public function getMovieList() {
+    public function getMovieList()
+    {
         try {
             $movies = Movie::all();
             return response()->json($movies);
@@ -25,17 +27,21 @@ class MovieController extends Controller
         }
     }
 
-    public function addMovie(Request $request) {
-        if ($request->isMethod('post')){
-            $request->validate([
+    public function addMovie(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $request->validate(
+                [
                 'title' => 'required',
-                'year' =>  'required|integer|gt:0',
+                'year' => 'required|integer|gt:0',
                 'creator' => 'required',
                 'category' => 'required',
                 'quantity' => 'required|integer|gt:0',
                 'image' => 'required',
                 'description' => 'required',
-            ]);
+                'price' => 'required|integer|gt:0',
+                ]
+            );
             $movies = new Movie();
             $data = array(
                 'title' => $request->input('title'),
@@ -45,6 +51,7 @@ class MovieController extends Controller
                 'category' => $request->input('category'),
                 'year' => $request->input('year'),
                 'quantity' => $request->input('quantity'),
+                'price' => $request->input('price'),
             );
             $movies->create($data);
             return redirect('/admin')->with('success', 'Successfully!  Movie added!');
@@ -52,10 +59,10 @@ class MovieController extends Controller
         return Inertia::render('AddMovie');
     }
 
-    public function edit(int $id, Request $request, movie $movies) {
+    public function edit(int $id, Request $request, movie $movies)
+    {
         $movies = Movie::find($id);
-        if($request->isMethod('post')) {
-
+        if ($request->isMethod('post')) {
             $data = array(
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
@@ -64,6 +71,8 @@ class MovieController extends Controller
                 'category' => $request->input('category'),
                 'year' => $request->input('year'),
                 'quantity' => $request->input('quantity'),
+                'price' => $request->input('price'),
+
             );
 
             $movieEdit = Movie::findOrFail($id);
@@ -74,10 +83,20 @@ class MovieController extends Controller
         return Inertia::render('Admin/Edit', ['movie' => $movies]);
     }
 
-    public function destroy(Movie $movies, $id) {
+    public function show($id)
+    {
+        return Inertia::render(
+            'details',
+            [
+            'movies' => Movie::findOrFail($id),
+            ]
+        );
+    }
+
+    public function destroy(Movie $movies, $id)
+    {
         $movies = Movie::findOrFail($id);
         $movies->delete();
         return redirect('/admin')->with('success', 'Successfully!  Movie deleted!');
     }
-
 }

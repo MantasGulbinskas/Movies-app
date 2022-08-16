@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('creator');
             $table->string('image_url');
             $table->string('category');
-            $table->string('year');
-            $table->tinyInteger('quantity');
+            $table->integer('year');
+            $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
         });
+
     }
 
     /**

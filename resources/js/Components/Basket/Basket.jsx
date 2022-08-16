@@ -1,16 +1,11 @@
-import React from 'react';
-import { Link } from '@inertiajs/inertia-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
-
-export default function Basket(props) {
+export default function Basket() {
     return (
-        <div className='bag-container'>
-            <FontAwesomeIcon className='shopping-icon' icon={faBagShopping} />            
-            <span>
-
-                0       </span>
-                  </div>
-    )
+        <div className="bag-container">
+            <FontAwesomeIcon className="shopping-icon" icon={faBagShopping} />
+        </div>
+    );
 }

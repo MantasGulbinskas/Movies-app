@@ -1,26 +1,49 @@
-import React from 'react';
-import { usePage } from '@inertiajs/inertia-react';
-
-import MoviesList from './MovieList';
+import React from "react";
+import { usePage } from "@inertiajs/inertia-react";
+import { Autoplay, Pagination, Navigation } from "swiper";
+import MoviesList from "./MovieList";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "../../../scss/MovieList/MovieList.scss";
 
 function Movies() {
     const movies = usePage().props.movies;
     return (
-        <div>
-            <section className='min-h-screen'>
-                <h1>Movies</h1>
-                <div className="movies-container">
-                    {
-                        movies.map(movie => {
+        <div className="movie-items">
+            <div className="container">
+                <div className="row">
+                    <Swiper
+                        slidesPerView={3}
+                        spaceBetween={20}
+                        slidesPerGroup={5}
+                        autoplay={{
+                            delay: 3500,
+                            disableOnInteraction: true,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Autoplay, Pagination, Navigation]}
+                    >
+                        {movies.map((movie) => {
                             return (
-                                <MoviesList key={movie.id} title={movie.title} img={movie.image_url} quantity={movie.quantity} />
-                            )
-                        })
-                    }
+                                <SwiperSlide key={movie.id}>
+                                    <MoviesList
+                                        id={movie.id}
+                                        title={movie.title}
+                                        image_url={movie.image_url}
+                                        quantity={movie.quantity}
+                                        category={movie.category}
+                                    />
+                                </SwiperSlide>
+                            );
+                        })}
+                    </Swiper>
                 </div>
-            </section>
+            </div>
         </div>
-        
-    )
+    );
 }
 export default Movies;

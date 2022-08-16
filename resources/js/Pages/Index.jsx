@@ -1,7 +1,6 @@
-import React from 'react';
-import Header from '@/Layouts/Header';
-import Movies from '@/Components/MoviesList/Movies'
-import Hero from '@/Components/HeroSection/Hero';
+import React from "react";
+import Header from "@/Layouts/Header";
+import Movies from "@/Components/MoviesList/Movies";
 
 export default function Welcome() {
     return (
@@ -9,5 +8,5 @@ export default function Welcome() {
             <Header />
             <Movies />
         </>
-    )
+    );
 }

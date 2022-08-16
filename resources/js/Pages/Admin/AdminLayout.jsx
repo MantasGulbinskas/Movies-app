@@ -1,35 +1,33 @@
-import React, {useState, useEffect} from "react";
-import '../../../scss/Admin/AdminLayout.scss';
-import Table from '@/Pages/Admin/Table';
+import React, { useState, useEffect } from "react";
+import Table from "@/Pages/Admin/Table";
 import { Link } from "@inertiajs/inertia-react";
 import { usePage } from "@inertiajs/inertia-react";
 import Success from "./Success";
 import Header from "@/Layouts/Header";
-
+import "../../../scss/Admin/AdminLayout.scss";
 
 export default function AdminLayout() {
-    const [showNotification, setShowNotification] = useState(true);
-        const { flash } = usePage().props;
-
+    const [showAlert, setShowAlert] = useState(true);
+    const { flash } = usePage().props;
     useEffect(() => {
-        const notificationTimer = setTimeout(() => {
-            setShowNotification(false);
-        }, 3500);
+        const Alert = setTimeout(() => {
+            setShowAlert(false);
+        }, 5000);
 
         return () => {
-            clearTimeout(notificationTimer);
-            setShowNotification(true);
-        }
+            clearTimeout(Alert);
+            setShowAlert(true);
+        };
     }, []);
 
     return (
         <>
             <Header />
-            <Success showNotification={showNotification} success={flash.success} />
+            <Success showAlert={showAlert} success={flash.success} />
             <Link href="/admin/create">
-                <button className="search-button">Create new</button>
+                <button className="create-button">Create new</button>
             </Link>
             <Table />
-            </>
-    )
+        </>
+    );
 }

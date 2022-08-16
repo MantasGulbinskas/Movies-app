@@ -21,24 +21,6 @@
     color: $color2;
 }
 
-.search-button {
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    padding: 14px 30px;
-    background-color: $color2;
-    color: black;
-    text-transform: uppercase;
-    border-radius: 0;
-    outline: 0;
-    text-decoration: none;
-}
-
-.search-button:hover {
-    background-color: $white;
-}
-
 .shopping-icon {
     cursor: pointer;
     color: $white;
@@ -48,17 +30,4 @@
 
 .shopping-icon:hover {
     color: $color2;
-}
-.bag-container span{
-    background-color: $color2;
-    color: $color;
-    font-size: 10px;
-    width: auto;
-    text-align: center;
-    padding: 5px;
-    border-radius: 100%;
-    position: absolute;
-    top: 0;
-    right: 370px;
-    cursor: pointer;
 }

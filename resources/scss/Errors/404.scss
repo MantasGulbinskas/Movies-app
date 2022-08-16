@@ -1,11 +1,10 @@
-@import '../variables';
+@import "../variables";
 
 .error-page {
     background: url(../../images/error-bg.jpg) no-repeat;
     background-position: center;
     text-align: center;
     background-size: cover;
-
 
     .home-button {
         font-size: 13px;
@@ -14,7 +13,7 @@
         letter-spacing: 1px;
         padding: 14px 30px;
         background-color: $color2;
-        color: black;
+        color: $black;
         text-transform: uppercase;
         border-radius: 0;
         outline: 0;

@@ -1,16 +1,13 @@
 import React from "react";
 
-const Success = ({ showNotification, success }) => {
+const Success = ({ showAlert, success }) => {
     return (
         <>
-        
-            {showNotification && success && (
-                <div className="alert alert-success alert-title" >
-                    { success }                 
-           </div>
-        )}
+            {showAlert && success && (
+                <div className="alert alert-success alert-title">{success}</div>
+            )}
         </>
-    )
-}
+    );
+};
 
 export default Success;

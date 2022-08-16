@@ -1,0 +1,87 @@
+@import "../variables";
+
+.movie-single {
+    background-color: #020d18;
+    padding: 75px 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    .movie-img {
+        position: relative;
+        top: 0;
+        margin-right: 30px;
+        margin-bottom: 60px;
+        img {
+            width: 100%;
+            border-radius: 5px;
+            border: 0;
+            max-width: 100%;
+            vertical-align: middle;
+        }
+    }
+    .movie-btn {
+        text-align: center;
+        padding: 18px;
+        flex-direction: column;
+        background-color: #07101a;
+        border: 3px solid #0c1c2c;
+        h5,
+        p {
+            color: $white;
+            display: inline;
+            margin-left: 10px;
+        }
+    }
+
+    .movie-single-ct {
+        .bd-hd {
+            font-size: 36px;
+            color: $white;
+            font-weight: 700;
+            text-transform: none;
+            margin-bottom: 25px;
+            span {
+                margin-left: 20px;
+                font-size: 24px;
+                color: #4f5b68;
+                font-weight: 300;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .movie-tabs {
+        margin-bottom: 60px;
+
+        .tab-content {
+            padding-left: 15px;
+        }
+        p {
+            font-size: 20px;
+            color: #abb7c4;
+            font-weight: 300;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+        .right-content {
+            margin-bottom: 30px;
+            margin-left: 30px;
+            h6 {
+                font-size: 20px;
+                color: #abb7c4;
+                font-weight: bold;
+                text-transform: capitalize;
+                margin-bottom: 10px;
+            }
+            a {
+                color: #4280bf;
+                transition: all 0.3s ease-out;
+            }
+            a:hover {
+                color: $color2;
+            }
+        }
+    }
+}

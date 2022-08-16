@@ -1,60 +1,70 @@
-@import '../_variables';
+@import "../_variables";
 section {
     background: url(../../images/error-bg.jpg) no-repeat;
     background-position: center;
     text-align: center;
     background-size: cover;
-
-    .movies-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .list-container  {
-        background-color: #202330;
-        height: 20rem;
-        width: 14rem;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 10%;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        margin: 0 1rem 2rem 1rem;
-        cursor: pointer;
-
-        img {
-            height: 280px;
-            width: 224px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-        }
-    }
-
-    .icon {
-    margin-left: 2rem;
-    }
-    .icon:hover {
-        cursor: pointer;
-        color: $color2;
-    }
-
-
-}
-.title, h4, .icon, p{
-    background-color: $color3;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
 }
 
-h4 {
-    font-family:Arial, Helvetica, sans-serif;
+.movie-item {
+    position: relative;
+    margin-right: 30px;
+    border-radius: 5px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.mv-img {
+    position: relative;
+}
+.title-in {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    bottom: 20px;
+    left: 0;
+    position: absolute;
+
+    h6 {
+        font-size: 24px;
+        color: $color2;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    p {
+        color: $white;
+    }
 }
 
-.title p {
-    display: inline-block;
-    margin-left: 20px;
+.movie-items {
+    height: 100vh;
+    background: url(../../images/slider-bg.jpg) no-repeat;
+    background-position: center;
+    text-align: center;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.movie-img {
+    img {
+        min-height: 400px;
+        max-height: 400px;
+        height: auto;
+    }
+}
+.container {
+    max-width: 1000px;
+}
+
+.swiper-pagination {
+    position: relative !important;
+    bottom: 20px !important;
 }

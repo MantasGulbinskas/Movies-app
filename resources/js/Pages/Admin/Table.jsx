@@ -1,35 +1,30 @@
 import axios from "axios";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import TableData from "./TableData";
-import '../../../scss/Admin/AdminLayout.scss';
-
 
 class Table extends Component {
-
     constructor(props) {
         super(props);
 
         this.state = {
-            movies : [''],
-        }
-     }
+            movies: [""],
+        };
+    }
     //Get Movies List.
 
     componentDidMount() {
         this.getMoviesList();
-
     }
-    
+
     getMoviesList = () => {
         let self = this;
-        axios.get('/get/movie/list').then(function (response) {
+        axios.get("/get/movie/list").then(function (response) {
             self.setState({
-                movies: response.data
+                movies: response.data,
             });
         });
-    }
+    };
 
-    
     render() {
         return (
             <div className="container min-h-screen">
@@ -39,27 +34,40 @@ class Table extends Component {
                             <table className="table table-hover">
                                 <thead>
                                     <tr>
-                                    <th scope='col' width='50px'></th>
-                                        <th scope='col' width='50px'>#</th>
-                                        <th scope='col' width='80px'>Title</th>
-                                        <th scope='col' width='80px'>Quantity</th>
-                                        <th scope='col' width='80px'>Price</th>
-                                        <th scope='col' width='80px'>Actions</th>
+                                        <th scope="col" width="20px">
+                                            #
+                                        </th>
+                                        <th scope="col" width="53px">
+                                            Image
+                                        </th>
+                                        <th scope="col" width="80px">
+                                            Title
+                                        </th>
+                                        <th scope="col" width="80px">
+                                            Quantity
+                                        </th>
+                                        <th scope="col" width="80px">
+                                            Year
+                                        </th>
+                                        <th scope="col" width="80px">
+                                            Price
+                                        </th>
+                                        <th scope="col" width="80px">
+                                            Actions
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {this.state.movies.map(function (x, i) {
-                                        return (
-                                            <TableData key={i} data={x} />
-                                        )
+                                        return <TableData key={i} data={x} />;
                                     })}
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-      </div>
-        )
+            </div>
+        );
     }
 }
 
